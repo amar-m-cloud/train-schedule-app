@@ -45,7 +45,7 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'put your k8s api ip address']) {
+                withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'KUBEAPISERVER']) {
                     sh 'kubectl apply -f train-schedule-kube.yml'
                 }
             }
